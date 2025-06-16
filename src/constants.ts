@@ -1,0 +1,2 @@
+export const CREATE_TOKEN_SUI_FEE = 100_000_000;
+ 

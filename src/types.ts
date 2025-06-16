@@ -1,6 +1,7 @@
- 
+import { z } from "zod";
+
 export interface SuiConfig {
-    privateKey?: string;
+    privateKey: string;
     network: 'testnet' | 'mainnet';
 }
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import * as dotenv from 'dotenv';
-import { SuiConfig } from "./types"
+import { SuiConfig } from './types';
 
 dotenv.config();
 
@@ -25,20 +25,18 @@ const getArgs = () =>
     }, {});
 
 export function validateEnvironment(): void {
-
     const args = getArgs();
 
-    // Check if either private key or access key is provided
-    // const hasPrivateKey = !!(args?.sui_private_key || process.env.SUI_PRIVATE_KEY); 
+    // Check if private key is provided
+    const hasPrivateKey = !!(args?.sui_private_key || process.env.SUI_PRIVATE_KEY);
 
-    // // Must have either private key or access key, but not necessarily both
-    // if (!hasPrivateKey) {
-    //     throw new Error(
-    //         'Missing required environment variables: Either SUI_PRIVATE_KEY must be provided'
-    //     );
-    // }
+    if (!hasPrivateKey) {
+        throw new Error(
+            'Missing required environment variable: SUI_PRIVATE_KEY must be provided'
+        );
+    }
 
-    // Network is still required in both modes
+    // Network is required
     const hasSuiNetwork = !!(args?.sui_network || process.env.SUI_NETWORK);
     if (!hasSuiNetwork) {
         throw new Error('Missing required environment variable: SUI_NETWORK');
@@ -56,7 +54,7 @@ export function getSuiConfig(): SuiConfig {
     };
 
     return {
-        privateKey: currentEnv.SUI_PRIVATE_KEY || undefined,
-        network: (currentEnv.SUI_NETWORK || 'mainnet') as 'testnet' | 'mainnet'
+        privateKey: currentEnv.SUI_PRIVATE_KEY!,
+        network: (currentEnv.SUI_NETWORK || 'mainnet') as 'testnet' | 'mainnet',
     };
 }

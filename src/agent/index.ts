@@ -13,6 +13,9 @@ import { getNameRecord } from "../tools/sns/get_name";
 import { getStake } from "../tools/sui/get_stake";
 import { getSuiConfig } from "../config"; 
 import { getValidators, ValidatorInfo } from "../tools/sui/get_validators";
+import { lendToScallop, withdrawFromScallop, getScallopPositions } from "../tools/scallop/lend";
+import { borrowFromScallop, repayToScallop, getScallopBorrowPositions } from "../tools/scallop/borrow";
+import { getTransactionByDigest, getRecentTransactions, getAccountInfo } from "../tools/transaction/management";
 
 export class Agent {
 
@@ -91,6 +94,44 @@ export class Agent {
 
     async getSnsNameRecord(name: string): Promise<NameRecord | undefined> {
         return getNameRecord(this, name)
+    }
+
+    // Scallop Lending Protocol Methods
+    async scallopLend(coinType: string, amount: number): Promise<TransactionResponse> {
+        return lendToScallop(this, coinType, amount);
+    }
+
+    async scallopWithdraw(coinType: string, amount: number): Promise<TransactionResponse> {
+        return withdrawFromScallop(this, coinType, amount);
+    }
+
+    async getScallopPositions(walletAddress?: string) {
+        return getScallopPositions(this, walletAddress || this.walletAddress);
+    }
+
+    async scallopBorrow(borrowCoinType: string, collateralCoinType: string, borrowAmount: number, collateralAmount: number): Promise<TransactionResponse> {
+        return borrowFromScallop(this, borrowCoinType, collateralCoinType, borrowAmount, collateralAmount);
+    }
+
+    async scallopRepay(coinType: string, amount: number): Promise<TransactionResponse> {
+        return repayToScallop(this, coinType, amount);
+    }
+
+    async getScallopBorrowPositions(walletAddress?: string) {
+        return getScallopBorrowPositions(this, walletAddress || this.walletAddress);
+    }
+
+    // Transaction Management Methods
+    async getTransaction(digest: string) {
+        return getTransactionByDigest(this, digest);
+    }
+
+    async getRecentTransactions(address?: string, limit?: number) {
+        return getRecentTransactions(this, address || this.walletAddress, limit || 10);
+    }
+
+    async getAccountInfo(address?: string) {
+        return getAccountInfo(this, address || this.walletAddress);
     }
  
 }

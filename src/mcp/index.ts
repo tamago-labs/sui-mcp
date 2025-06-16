@@ -10,6 +10,8 @@ import { UnstakeSuiTool } from "./sui/unstake_sui_tool";
 import { GetValidatorsTool } from "./sui/get_validators";
 import { CliTools } from "./cli";
 import { PythTools } from "./pyth";
+import { ScallopTools } from "./scallop";
+import { TransactionTools } from "./transaction"; 
 
 export const SuiMcpTools = {
     "GetSnsNameTool": GetSnsNameTool,
@@ -23,5 +25,7 @@ export const SuiMcpTools = {
     "UnstakeSuiTool": UnstakeSuiTool, 
     "GetValidatorsTool": GetValidatorsTool,
     ...CliTools,
-    ...PythTools
+    ...PythTools,
+    ...ScallopTools,
+    ...TransactionTools
 }

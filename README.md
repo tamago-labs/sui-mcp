@@ -1,5 +1,7 @@
 # Sui MCP
 
+![NPM Version](https://img.shields.io/npm/v/@tamago-labs/sui-mcp)
+
 **Sui MCP** is a Model Context Protocol (MCP) server implementation for the Sui blockchain, compatible with MCP clients like Claude Desktop or Cursor.ai. It allows managing wallet operations and smart contract flows through the SUI CLI.
 
 ## Features

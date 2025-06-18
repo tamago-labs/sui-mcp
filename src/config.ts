@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
-import * as dotenv from 'dotenv';
 import { SuiConfig } from './types';
 
-dotenv.config();
 
 const getArgs = () =>
     process.argv.reduce((args: any, arg: any) => {
@@ -28,7 +26,7 @@ export function validateEnvironment(): void {
     const args = getArgs();
 
     // Check if private key is provided
-    const hasPrivateKey = !!(args?.sui_private_key || process.env.SUI_PRIVATE_KEY);
+    const hasPrivateKey = !!(args?.sui_private_key);
 
     if (!hasPrivateKey) {
         throw new Error(
@@ -37,7 +35,7 @@ export function validateEnvironment(): void {
     }
 
     // Network is required
-    const hasSuiNetwork = !!(args?.sui_network || process.env.SUI_NETWORK);
+    const hasSuiNetwork = !!(args?.sui_network);
     if (!hasSuiNetwork) {
         throw new Error('Missing required environment variable: SUI_NETWORK');
     }
@@ -49,8 +47,8 @@ export function getSuiConfig(): SuiConfig {
     const args = getArgs();
 
     const currentEnv = {
-        SUI_PRIVATE_KEY: args?.sui_private_key || process.env.SUI_PRIVATE_KEY,
-        SUI_NETWORK: args?.sui_network || process.env.SUI_NETWORK,
+        SUI_PRIVATE_KEY: args?.sui_private_key,
+        SUI_NETWORK: args?.sui_network,
     };
 
     return {

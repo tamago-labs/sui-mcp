@@ -1,6 +1,6 @@
 {
     "name": "@tamago-labs/sui-mcp",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "MCP server implementation for Sui blockchain",
     "main": "dist/index.js",
     "module": "./dist/index.mjs",

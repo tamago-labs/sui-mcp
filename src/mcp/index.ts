@@ -7,8 +7,7 @@ import { GetWalletAddressTool } from "./sui/get_wallet_address_tool";
 import { StakeSuiTool } from "./sui/stake_sui_tool";
 import { TransferTokenTool } from "./sui/transfer_token_tool";
 import { UnstakeSuiTool } from "./sui/unstake_sui_tool"; 
-import { GetValidatorsTool } from "./sui/get_validators";
-import { CliTools } from "./cli";
+import { GetValidatorsTool } from "./sui/get_validators"; 
 import { PythTools } from "./pyth";
 import { ScallopTools } from "./scallop";
 import { TransactionTools } from "./transaction"; 
@@ -23,8 +22,7 @@ export const SuiMcpTools = {
     "StakeSuiTool": StakeSuiTool,
     "TransferTokenTool": TransferTokenTool,
     "UnstakeSuiTool": UnstakeSuiTool, 
-    "GetValidatorsTool": GetValidatorsTool,
-    ...CliTools,
+    "GetValidatorsTool": GetValidatorsTool, 
     ...PythTools,
     ...ScallopTools,
     ...TransactionTools

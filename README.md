@@ -9,8 +9,7 @@
 - **33+ MCP tools** covering account management, DeFi protocols, smart contract development, staking, and market data
 - **Scallop lending protocol integration** for lending, borrowing, and position management
 - **Advanced transaction management** with detailed analytics and account insights
-- **Pyth price oracle integration** for real-time market data
-- **Comprehensive Sui CLI integration** for smart contract development and testing
+- **Pyth price oracle integration** for real-time market data 
 - **Stake to validators** with insights from AI
 
 ## Using with Claude Desktop
@@ -49,21 +48,14 @@ The agent integrates with leading DeFi protocols and price oracles to help you:
 - **Analyze transaction history** and optimize gas usage
 - **Monitor health ratios** and liquidation risks
 
-### 2. Smart Contract Development & Testing Assistance
-The agent integrates with the Sui CLI to help developers:
-- **Analyze existing Move code** and suggest improvements
-- **Generate comprehensive test cases** for smart contracts
-- **Publish and upgrade packages** directly through AI conversation
-- **Build and test Move projects** with integrated tooling
-
-### 3. Professional DeFi Operations
+### 2. Professional DeFi Operations
 The agent assists DeFi protocol users and managers with:
 - **Multi-protocol position management** across lending platforms
 - **Risk assessment and monitoring** with real-time health ratios
 - **Transaction analysis and optimization** for cost efficiency
 - **Automated DeFi strategy execution** with AI insights
 
-## Available Tools (33+ Tools)
+## Available Tools (22+ Tools)
 
 ### Core Wallet Operations
 | Tool Name | Description | Example Usage |
@@ -107,21 +99,6 @@ The agent assists DeFi protocol users and managers with:
 |-----------|-------------|---------------|
 | `sui_get_sns_name_record` | Get SNS domain information | "Look up info about domain.sui" |
 | `sui_register_sns` | Register a SNS domain | "Register myname.sui for 2 years" |
-
-### Sui CLI Integration (11 Tools)
-| Tool Name | Description | Example Usage |
-|-----------|-------------|---------------|
-| `sui_cli_publish` | Deploy a Move package to the network | "Deploy my Move package to mainnet" |
-| `sui_cli_move_test` | Run Move unit tests | "Run tests for my smart contract" |
-| `sui_cli_move_new` | Create a new Move project | "Create a new Move project called my-defi-protocol" |
-| `sui_cli_move_build` | Build a Move package | "Build the package in this folder" |
-| `sui_cli_call` | Call a Move function | "Call function update_price with args [10000]" |
-| `sui_cli_active_env` | Get currently active Sui network | "Which network am I connected to?" |
-| `sui_cli_active_address` | Get active address on Sui CLI | "What's my active CLI address?" |
-| `sui_cli_addresses` | List all wallet addresses and aliases | "List all my CLI wallets" |
-| `sui_cli_switch_address` | Change the active address | "Switch to address 0x456..." |
-| `sui_cli_switch_env` | Switch network environment | "Switch to testnet" |
-| `sui_cli_envs` | List all configured environments | "Show all network configurations" |
 
 ### Price Data (Pyth) (3 Tools)
 | Tool Name | Description | Example Usage |
